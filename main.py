@@ -18,3 +18,10 @@ if __name__ == "__main__":
     if order:
         order.process_payment("Credit Card")
         print("Order details:", order.__dict__)
+
+    # Testing Singleton Behavior
+    inventory2 = Inventory()
+    print("Inventory is singleton:", inventory is inventory2)  # Should print True
+
+    cart2 = Cart(user.user_id)
+    print("Cart is singleton:", user.cart is cart2)  # Should print True

@@ -1,8 +1,10 @@
 from product import Product
+from singleton import Singleton
 
-class Inventory:
+class Inventory(Singleton):
     def __init__(self):
-        self.products = {}
+        if not hasattr(self, "products"):  # Prevent reinitialization
+            self.products = {}
 
     def add_product(self, product: Product):
         self.products[product.product_id] = product

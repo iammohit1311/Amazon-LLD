@@ -1,9 +1,11 @@
 from order import Order
+from singleton import Singleton
 
-class Cart:
+class Cart(Singleton):
     def __init__(self, user_id: str):
-        self.user_id = user_id
-        self.items = {}
+        if not hasattr(self, "items"):
+            self.user_id = user_id
+            self.items = {}
 
     def add_item(self, product, quantity):
         if product.stock >= quantity:
